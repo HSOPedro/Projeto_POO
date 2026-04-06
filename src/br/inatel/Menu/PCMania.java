@@ -82,10 +82,7 @@ public class PCMania {
             opcao = scanner.nextInt();
 
             switch (opcao) {
-                case 1:
-                case 2:
-                case 3:
-
+                case 1, 2 , 3:
                     //verifica limite do carrinho
                     if (quantidade >= 10) {
                         System.out.println("\nLimite de 10 computadores já foi atingido!");
