@@ -1,47 +1,56 @@
 package br.inatel._Sistema_compra;
 
-//classe principal que representa um computador
+// classe principal que representa um computador
 public class Computador {
-    private String marca;//marca do computador
-    private float preco;//preço do computador
-    private SistemaOperacional sistemaOperacional;
-    private HardwareBasico[] hardwares; // lista de hardwares (array)
-    private MemoriaUSB memoriaUSB;
 
+    private String marca; // marca do computador
+    private float preco; // preço do computador
+    private SistemaOperacional sistemaOperacional; // sistema operacional
+    private HardwareBasico[] hardwares; // vetor de hardwares
+    private MemoriaUSB memoriaUSB; // memória USB
+
+    // construtor
     public Computador(String marcaParametro, float precoParametro) {
-        marca = marcaParametro;//marca do computador
-        preco = precoParametro;//preço do computador
-        hardwares = new HardwareBasico[3];//cria um vetor de 3 hardwares
+        marca = marcaParametro; // recebe a marca
+        preco = precoParametro; // recebe o preço
+        hardwares = new HardwareBasico[3]; // cria espaço para 3 hardwares
     }
 
+    // retorna o preço
     public float getPreco() {
         return preco;
     }
 
+    // retorna o vetor de hardwares
     public HardwareBasico[] getHardwares() {
         return hardwares;
     }
 
+    // define o sistema operacional
     public void setSistemaOperacional(SistemaOperacional sistemaParametro) {
         sistemaOperacional = sistemaParametro;
     }
 
-    public void setMemoriaUSB(MemoriaUSB memoriaParametro) {
-        memoriaUSB = memoriaParametro;
+    // adiciona memória USB
+    public void addMemoriaUSB(MemoriaUSB musb) {
+        memoriaUSB = musb;
     }
 
-    //mostra todas as informações do computador
-    public void mostrarComputador() {
-        System.out.println("\nMarca: " + marca);
+    // mostra todas as configurações do computador
+    public void mostraPCConfigs() {
+
+        System.out.println("Marca: " + marca);
         System.out.println("Preço: R$" + preco);
 
-        sistemaOperacional.mostrarSO();
+        // mostra o sistema operacional
+        sistemaOperacional.mostraSO();
 
-        //percorre e mostra os hardwares
+        // percorre e mostra os hardwares
         for (int i = 0; i < hardwares.length; i++) {
-            hardwares[i].mostrarHardware();
+            hardwares[i].mostraHardware();
         }
 
-        memoriaUSB.mostrarUSB();
+        // mostra a memória USB
+        memoriaUSB.mostraUSB();
     }
 }
